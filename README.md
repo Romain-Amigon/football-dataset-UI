@@ -5,4 +5,7 @@ Interface utilisateur pour comparer deux équipes de foot :
   calcul des probabilités avec la loi de Laplace
   approximation par des lois normales
 
+
+  Utilise le dataset https://www.kaggle.com/datasets/davidcariboo/player-scores?select=club_games.csv
+
   <img width="1078" height="993" alt="image" src="https://github.com/user-attachments/assets/f7db2d71-0190-423d-83b1-1e7ffe96098c" />
