@@ -8,4 +8,5 @@ Interface utilisateur pour comparer deux équipes de foot :
 
   Utilise le dataset https://www.kaggle.com/datasets/davidcariboo/player-scores?select=club_games.csv
 
-  <img width="1078" height="993" alt="image" src="https://github.com/user-attachments/assets/f7db2d71-0190-423d-83b1-1e7ffe96098c" />
+<img width="1170" height="967" alt="image" src="https://github.com/user-attachments/assets/65c6bb8f-1ec6-4d82-85a4-55f9438951bc" />
+<img width="1095" height="985" alt="image" src="https://github.com/user-attachments/assets/60064940-f193-4153-8430-9e58c4b89c9b" />
