@@ -353,12 +353,12 @@ class FootballComparisonApp:
         if total_h2h_recent > 0:
             mu = club1_head_wins_recent / total_h2h_recent
             mu2 = club2_head_wins_recent / total_h2h_recent
-            mu3 =proba_draw_recent 
+            mu3 = draws_recent / total_h2h_recent
 
             # Variance corrigée pour la distribution binomiale
-            variance1 = (mu * (1 - mu)) / total_h2h_recent if total_h2h_recent > 0 else 0.1
+            variance1 = (mu * (1 - mu2)) / total_h2h_recent if total_h2h_recent > 0 else 0.1
             sigma1 = np.sqrt(max(variance1, 0.01))  # Minimum pour éviter une courbe trop étroite
-            variance2 = (mu2 * (1 - mu2)) / total_h2h_recent if total_h2h_recent > 0 else 0.1
+            variance2 = (mu2 * (1 - mu)) / total_h2h_recent if total_h2h_recent > 0 else 0.1
             sigma2 = np.sqrt(max(variance2, 0.01))
             variance3 = (mu3 * (1 - mu3)) / total_h2h_recent if total_h2h_recent > 0 else 0.1
             sigma3 = np.sqrt(max(variance3, 0.01))
