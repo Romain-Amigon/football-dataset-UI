@@ -26,7 +26,7 @@ class FootballComparisonApp:
         self.root = root
         self.root.title("Comparaison des Clubs de Football")
         self.root.geometry("800x600")
-
+        self.root.state('zoomed')
         # ----- 1. Zone défilante -----
         container = ttk.Frame(self.root)
         container.pack(fill="both", expand=True)
@@ -101,8 +101,24 @@ class FootballComparisonApp:
         ttk.Button(self.main_frame, text="Comparer", command=self.compare_clubs)\
             .grid(row=4, column=0, columnspan=2, pady=10)
 
-        self.result_text = tk.Text(self.main_frame, height=25, width=80)
-        self.result_text.grid(row=5, column=0, columnspan=2, pady=10)
+        # Créer un cadre pour le widget Text et la Scrollbar
+        text_frame = ttk.Frame(self.main_frame)
+        text_frame.grid(row=5, column=0, columnspan=2, pady=10)
+        
+        # Créer le widget Text
+        self.result_text = tk.Text(text_frame, height=25, width=80)
+        self.result_text.grid(row=0, column=0, sticky="nsew")
+        
+        # Créer la Scrollbar verticale
+        scrollbar_text = ttk.Scrollbar(text_frame, orient="vertical", command=self.result_text.yview)
+        scrollbar_text.grid(row=0, column=1, sticky="ns")
+        
+        # Associer la Scrollbar au widget Text
+        self.result_text.configure(yscrollcommand=scrollbar_text.set)
+        
+        # Configurer le cadre pour que le widget Text s'adapte
+        text_frame.grid_rowconfigure(0, weight=1)
+        text_frame.grid_columnconfigure(0, weight=1)
 
     # ----- Scroll molette verticale -----
     def _on_mousewheel(self, event):
@@ -402,6 +418,9 @@ class FootballComparisonApp:
             self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
         self.result_text.insert(tk.END, result)
+        self.result_text.update_idletasks()
+
+
 
 
 if __name__ == "__main__":
